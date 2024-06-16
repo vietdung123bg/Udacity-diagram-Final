@@ -6,9 +6,9 @@ export const config = {
   password: 'postgres',
   database: 'usernote',
   host: 'usernote.clht8dmvrdos.us-east-1.rds.amazonaws.com',
-  aws_region: '',
-  AWS_DEFAULT_REGION: '',
-  aws_profile: '',
+  AWS_REGION: 'us-east-1',
+  AWS_DEFAULT_REGION: 'AKIA25FZYOZK6O4GZ76J',
+  AWS_PROFILE: 'myAdmin',
   aws_media_bucket: '',
   url: 'http://localhost:8080/',
   jwt: {

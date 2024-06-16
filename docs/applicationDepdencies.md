@@ -1,3 +1,4 @@
-Node v14.15.0
-npm 6.14.8
+Node v18
+npm 10.7.0
+yarn 1.22.22
 AWS Services
