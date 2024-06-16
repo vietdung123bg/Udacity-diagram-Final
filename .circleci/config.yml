@@ -1,0 +1,61 @@
+version: 2.1
+orbs:
+  node: circleci/node@5.0.2
+  eb: circleci/aws-elastic-beanstalk@2.0.1
+  aws-cli: circleci/aws-cli@3.1.1
+jobs:
+  frontend:
+    working_directory: ~/udacity-diagram/udacity-diagram-usernote-frontend
+    executor: node/default
+    steps: 
+      - checkout:
+          path: ~
+      - node/install:
+          install-yarn: true
+          node-version: '16.13'
+      - run: node --version
+      - node/install-packages:
+          app-dir: ~/udacity-diagram/udacity-diagram-usernote-frontend
+      - run:
+          name: Build Frontend
+          command: npm run build
+      - aws-cli/install
+      - aws-cli/setup:
+          aws-access-key-id: AKIA25FZYOZK6O4GZ76J
+          aws-region: us-east-1
+          profile-name: myAdmin
+      - run:
+          name: Deploy Frontend
+          command: aws s3 cp --recursive  ./www s3://udacity-diagram-usernote/
+  server:
+    working_directory: ~/udacity-diagram/udacity-diagram-usernote-api
+    executor: node/default
+    steps:
+      - checkout:
+          path: ~
+      - node/install-packages:
+          app-dir: ~/udacity-diagram/udacity-diagram-usernote-api
+      - aws-cli/install
+      - eb/setup
+      - run:
+          name: Deploy Server
+          command: npm run deploy
+workflows:
+  build_and_deploy:
+    jobs:
+      - hold:
+          filters:
+            branches:
+              only:
+                - master
+          type: approval
+      - frontend:
+          filters:
+            branches:
+              only:
+                - master
+      - server:
+          filters:
+            branches:
+              only:
+                - master
