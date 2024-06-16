@@ -21,9 +21,9 @@ jobs:
           command: npm run build
       - aws-cli/install
       - aws-cli/setup:
-          aws-access-key-id: "AKIA25FZYOZK6O4GZ76J"
-          aws-region: "us-east-1"
-          profile-name: "myAdmin"
+          aws-access-key-id: AWS_ACCESS_KEY
+          aws-region: AWS_REGION
+          profile-name: AWS_PROFILE
       - run:
           name: Deploy Frontend
           command: aws s3 cp --recursive  ./www s3://udacity-diagram-usernote/
