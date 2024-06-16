@@ -1,0 +1,16 @@
+{
+    "scripts": {
+        "frontend:install": "cd udagram-diagram/udagram-diagram-usernote-frontend && npm install -f",
+        "frontend:start": "cd udagram-diagram/udagram-diagram-usernote-frontend && npm run start",
+        "frontend:build": "cd udagram-diagram/udagram-diagram-usernote-frontend && npm run build",
+        "frontend:test": "cd udagram-diagram/udagram-diagram-usernote-frontend && npm run test",
+        "frontend:e2e": "cd udagram-diagram/udagram-diagram-usernote-frontend && npm run e2e",
+        "frontend:lint": "cd udagram-diagram/udagram-diagram-usernote-frontend && npm run lint",
+        "frontend:deploy": "cd udagram-diagram/udagram-diagram-usernote-frontend && npm run deploy",
+        "api:install": "cd udagram-diagram/udacity-diagram-usernote-api && npm install .",
+        "api:build": "cd udagram-diagram/udacity-diagram-usernote-api && npm run build",
+        "api:start": "cd udagram-diagram/udacity-diagram-usernote-api && npm run dev",
+        "api:deploy": "cd udagram-diagram/udacity-diagram-usernote-api && npm run deploy",
+        "deploy": "npm run api:deploy && npm run frontend:deploy"
+    }
+}

@@ -1,0 +1,15 @@
+<form [formGroup]="uploadForm" (submit)="onSubmit($event)">`
+  <ion-item>
+      <ion-label position="floating" color="primary">Task Name</ion-label>
+      <ion-input type="text" formControlName="taskName" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" color="primary">To Do</ion-label>
+    <ion-textarea type="text" formControlName="toDo" required></ion-textarea>
+  </ion-item>
+  <ion-button 
+    color="primary" 
+    type="submit">
+    Post
+  </ion-button>
+</form>

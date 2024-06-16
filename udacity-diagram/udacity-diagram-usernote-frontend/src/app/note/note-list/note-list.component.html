@@ -1,0 +1,16 @@
+<table id="noteTable">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Task Name</th>
+      <th scope="col">To Do</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let item of noteItems; index as i;">
+    <tr>
+      <th scope="row">{{i + 1}}</th>
+      <td><h3><b>{{item.taskName}}</b></h3></td>
+      <td><textarea rows="5" cols="50" class="card-text" disabled>{{item.toDo}}</textarea></td>
+    </tr>
+  </tbody>
+</table>
